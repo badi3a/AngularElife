@@ -1,14 +1,60 @@
 <h1>Add a new Product</h1>
-<form>
+<form #f="ngForm">
   <div class="row">
     <div class="form-group col-md-6">
       <label>name:*</label>
-      <input type="text"  [(ngModel)]="product.name" name="name" placeholder="the product name" class="form-control">
+      <input type="text"  [(ngModel)]="product.name" minlength="3" name="name"
+      required placeholder="the product name" class="form-control" #n="ngModel">
     </div>
-    <div class="alert alert-danger col-md-6">
-       error
+
+    <div class="alert alert-danger col-md-6" *ngIf="n.invalid && n.touched">
+      <div *ngIf="n.hasError('required')">this field is required</div>
+      <div *ngIf="n.hasError('minlength')">the minlength of this field is equal to 3</div>
+    </div>
+
+  </div>
+  <div class="row">
+    <div class="form-group col-md-6">
+      <label>Price:*</label>
+      <input type="number"  [(ngModel)]="product.price" name="price" #p="ngModel" required placeholder="the product price"
+      class="form-control">
+    </div>
+    <div class="alert alert-danger col-md-6" *ngIf="p.invalid && p.touched">
+      <div *ngIf="p.hasError('required')">this field is required</div>
     </div>
   </div>
-  <button class="btn btn-success" (click)="save()">save</button>
+  <div class="row">
+    <div class="form-group col-md-6">
+      <label>quantity:*</label>
+      <input type="number"  [(ngModel)]="product.quantity" name="quantity" #q="ngModel" required placeholder="the product quantity"
+      class="form-control">
+    </div>
+    <div class="alert alert-danger col-md-6" *ngIf="q.invalid && q.touched">
+      <div *ngIf="p.hasError('required')">this field is required</div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-group col-md-6">
+      <label>description:*</label>
+      <input type="number"  [(ngModel)]="product.description" name="price" #d="ngModel" required placeholder="the product description"
+      class="form-control">
+    </div>
+    <div class="alert alert-danger col-md-6" *ngIf="d.invalid && d.touched">
+      <div *ngIf="d.hasError('required')">this field is required</div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-group col-md-6">
+      <label>Picture:*</label>
+      <input type="number"  [(ngModel)]="product.picture" name="picture" #pic="ngModel" required placeholder="the product description"
+      class="form-control">
+    </div>
+    <div class="alert alert-danger col-md-6" *ngIf="pic.invalid && pic.touched">
+      <div *ngIf="pic.hasError('required')">this field is required</div>
+    </div>
+  </div>
+  <button class="btn btn-success" (click)="save()" [disabled]="f.invalid">
+    save
+  </button>
 
 </form>
