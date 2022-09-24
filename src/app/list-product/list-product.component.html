@@ -10,8 +10,11 @@
          <br>
          price: {{product.price}}
         </p>
-        <button class="btn btn-primary" (click)="incrementLike(product)">
+        <button class="btn btn-sm btn-primary" (click)="incrementLike(product)">
           {{product.nbrLike}}--like
+        </button>
+        <button id="btn-buy"class="btn btn-sm btn-warning">
+          buy Product
         </button>
 
       </div>
