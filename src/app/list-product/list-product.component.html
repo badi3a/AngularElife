@@ -4,7 +4,7 @@
     <div class="card" style="width: 18rem;">
       <img src="{{product.picture}}" class="card-img-top" alt="...">
       <div class="card-body">
-        <h5 class="card-title">{{product.name}}</h5>
+        <h5 class="card-title">{{product.name}}</h5> <img class="img" *ngIf="product.quantity==0" src="assets/stock.jpg">
         <p class="card-text">
          Description:{{product.description}}
          <br>
@@ -13,10 +13,14 @@
         <button class="btn btn-sm btn-primary" (click)="incrementLike(product)">
           {{product.nbrLike}}--like
         </button>
-        <button [disabled]="product.quantity==0" id="btn-buy"class="btn btn-sm btn-warning">
+        <button [disabled]="product.quantity==0" (click)="buyProduct(product)" class="btn btn-sm btn-warning btn-buy">
           buy Product
         </button>
-        <img class="img" *ngIf="product.quantity==0" src="assets/stock.jpg">
+        &nbsp;
+        <button class="btn btn-sm btn-danger" (click)="deleteProduct(product)">
+          delete
+        </button>
+
       </div>
     </div>
   </div>

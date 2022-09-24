@@ -38,5 +38,18 @@ export class ListProductComponent implements OnInit {
     this.list[i].nbrLike++;
    }
   }
+  buyProduct(product:Product){
+    let i= this.list.indexOf(product);
+    if(i!=-1){
+     this.list[i].quantity--;
+    }
+  }
+  deleteProduct(product:Product){
+    let i= this.list.indexOf(product);
+    if(i!=-1){
+      //cnx to backend service/api
+     this.list.splice(i,1)
+    }
+  }
 
 }
