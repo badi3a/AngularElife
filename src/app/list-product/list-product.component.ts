@@ -19,7 +19,7 @@ export class ListProductComponent implements OnInit {
         price: 25,
         nbrLike: 10,
         quantity: 3,
-        description: 'nice Tshirt',
+        description: 'nice T-shirt',
         picture: 'https://www.exist.com.tn/83302-home_default/t-shirt.jpg'
       },
       {id:13,
@@ -27,7 +27,7 @@ export class ListProductComponent implements OnInit {
         price: 20,
         nbrLike: 10,
         quantity: 0,
-        description: 'nice Tshirt',
+        description: 'nice T-shirt',
         picture: 'https://www.exist.com.tn/61485-large_default/t-shirt.jpg'
       }
     ]
