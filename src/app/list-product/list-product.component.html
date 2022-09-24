@@ -13,9 +13,12 @@
         <button class="btn btn-sm btn-primary" (click)="incrementLike(product)">
           {{product.nbrLike}}--like
         </button>
-        <button id="btn-buy"class="btn btn-sm btn-warning">
+        <button [disabled]="product.quantity==0" id="btn-buy"class="btn btn-sm btn-warning">
           buy Product
         </button>
+        <div class="alert alert-danger" *ngIf="product.quantity==0">
+        out of stock :,(
+        </div>
 
       </div>
     </div>
