@@ -16,10 +16,7 @@
         <button [disabled]="product.quantity==0" id="btn-buy"class="btn btn-sm btn-warning">
           buy Product
         </button>
-        <div class="alert alert-danger" *ngIf="product.quantity==0">
-        out of stock :,(
-        </div>
-
+        <img class="img" *ngIf="product.quantity==0" src="assets/stock.jpg">
       </div>
     </div>
   </div>
