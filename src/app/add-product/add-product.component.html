@@ -1,4 +1,5 @@
-<h1>Add a new Product</h1>
+<div class="form">
+  <h1>Add a new Product</h1>
 <form #f="ngForm">
   <div class="row">
     <div class="form-group col-md-6">
@@ -53,8 +54,11 @@
       <div *ngIf="pic.hasError('required')">this field is required</div>
     </div>
   </div>
+  <br>
   <button class="btn btn-success" (click)="save()" [disabled]="f.invalid">
     save
   </button>
 
 </form>
+
+</div>
