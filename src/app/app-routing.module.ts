@@ -10,6 +10,7 @@ const routes: Routes = [
   {path:'home', component: HomeComponent},
   {path:'newProduct', component: AddProductComponent},
   {path:'products', component: ListProductComponent},
+  {path:'update/:id', component: AddProductComponent},
   {path:'**', component: NotFoundComponent},
 ];
 

@@ -34,8 +34,13 @@ export class ListProductComponent implements OnInit {
     let i= this.list.indexOf(product);
     if(i!=-1){
       //cnx to backend service/api
-     this.list.splice(i,1)
+      this.prodService.deleteProduct(product.id).subscribe(
+        ()=> this.list.splice(i,1)
+      )
+
     }
   }
+  updateProduct(){
 
+  }
 }

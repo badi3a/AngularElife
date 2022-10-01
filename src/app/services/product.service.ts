@@ -21,4 +21,7 @@ export class ProductService {
   updateProduct(product: Product){
     return this.httpService.put(this.url+product.id,product)
   }
+  getById(id:number){
+    return this.httpService.get<Product>(this.url+id)
+  }
 }

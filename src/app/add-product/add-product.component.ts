@@ -1,7 +1,8 @@
 import { ProductService } from './../services/product.service';
 import { Product } from './../model/product';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-add-product',
@@ -10,17 +11,38 @@ import { Router } from '@angular/router';
 })
 export class AddProductComponent implements OnInit {
   product: Product;
+  title: String;
+  //Router pour la navigation
+  //Activated pour lire les paramètres dans l url actif
   constructor(private prodService:ProductService,
-    private route:Router) { }
+                private route:Router,
+                private currentRoute: ActivatedRoute) { }
   ngOnInit(): void {
+    let id= this.currentRoute.snapshot.params['id'];
+    console.log(id);
+    if(id==null){
+      //add a new Product
     this.product= new Product();
-    console.log(this.product)
+    this.title='add a new Product'}
+    else{
+      //update
+      this.title='update the product with id: '+id;
+      this.prodService.getById(id).subscribe(
+        (data)=>this.product=data
+      )
+    }
+
   }
   save(){
+   if(this.product.id==null){
     this.product.nbrLike=0;
     this.prodService.addProduct(this.product).subscribe(
       ()=>this.route.navigate(['products'])
     )
-
+   }else{
+    this.prodService.updateProduct(this.product).subscribe(
+      ()=>this.route.navigate(['products'])
+    )
+   }
   }
 }
