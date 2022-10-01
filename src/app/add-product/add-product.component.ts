@@ -18,7 +18,9 @@ export class AddProductComponent implements OnInit {
   }
   save(){
     this.product.nbrLike=0;
-    this.prodService.listService.push(this.product);
-    this.route.navigate(['products'])
+    this.prodService.addProduct(this.product).subscribe(
+      ()=>this.route.navigate(['products'])
+    )
+
   }
 }

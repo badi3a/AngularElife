@@ -10,7 +10,7 @@ export class ProductService {
   constructor(private httpService: HttpClient) { }
   //form the backend Side
   getAllProduct(){
-    return this.httpService.get(this.url)
+    return this.httpService.get<Product[]>(this.url)
   }
   addProduct(product: Product){
     return this.httpService.post(this.url,product)

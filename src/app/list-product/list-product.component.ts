@@ -14,7 +14,9 @@ export class ListProductComponent implements OnInit {
   }
   ngOnInit(): void {
     this.title = 'MyShop';
-    this.list=this.prodService.listService;
+    this.prodService.getAllProduct().subscribe(
+       (data:Product[])=>{this.list=data}
+    );
   }
   incrementLike(product: Product){
    let i= this.list.indexOf(product);
