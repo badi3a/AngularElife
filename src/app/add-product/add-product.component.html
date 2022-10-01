@@ -37,7 +37,8 @@
   <div class="row">
     <div class="form-group col-md-6">
       <label>description:*</label>
-      <input type="number"  [(ngModel)]="product.description" name="price" #d="ngModel" required placeholder="the product description"
+      <input type="text"  [(ngModel)]="product.description"
+      name="description" #d="ngModel" required placeholder="the product description"
       class="form-control">
     </div>
     <div class="alert alert-danger col-md-6" *ngIf="d.invalid && d.touched">
@@ -47,7 +48,7 @@
   <div class="row">
     <div class="form-group col-md-6">
       <label>Picture:*</label>
-      <input type="number"  [(ngModel)]="product.picture" name="picture" #pic="ngModel" required placeholder="the product description"
+      <input type="text"  [(ngModel)]="product.picture" name="picture" #pic="ngModel" required placeholder="the product description"
       class="form-control">
     </div>
     <div class="alert alert-danger col-md-6" *ngIf="pic.invalid && pic.touched">
